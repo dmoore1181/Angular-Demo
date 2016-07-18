@@ -1,0 +1,91 @@
+C:\Development\AngularJs\Events\AppData\bin\AppData.dll
+C:\Development\AngularJs\Events\AppData\bin\AppData.pdb
+C:\Development\AngularJs\Events\AppData\bin\Antlr3.Runtime.dll
+C:\Development\AngularJs\Events\AppData\bin\EntityFramework.dll
+C:\Development\AngularJs\Events\AppData\bin\Microsoft.Web.Infrastructure.dll
+C:\Development\AngularJs\Events\AppData\bin\Newtonsoft.Json.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Helpers.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Mvc.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Optimization.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Providers.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Razor.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.Deployment.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.dll
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.Razor.dll
+C:\Development\AngularJs\Events\AppData\bin\WebGrease.dll
+C:\Development\AngularJs\Events\AppData\bin\EntityFramework.xml
+C:\Development\AngularJs\Events\AppData\bin\Newtonsoft.Json.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Helpers.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Mvc.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.Razor.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.Deployment.xml
+C:\Development\AngularJs\Events\AppData\bin\System.Web.WebPages.Razor.xml
+C:\Development\AngularJs\Events\AppData\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+C:\Development\AngularJs\Events\AppData\obj\Debug\AppData.dll
+C:\Development\AngularJs\Events\AppData\obj\Debug\AppData.pdb
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\AppData.dll.config
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\AppData.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\AppData.pdb
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\Antlr3.Runtime.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\EntityFramework.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\Newtonsoft.Json.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Net.Http.Formatting.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Helpers.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Http.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Http.WebHost.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Mvc.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Optimization.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Providers.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Razor.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.Deployment.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.Razor.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\WebGrease.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\EntityFramework.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\Newtonsoft.Json.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Net.Http.Formatting.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Helpers.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Http.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Http.WebHost.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Mvc.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.Razor.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.Deployment.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\bin\System.Web.WebPages.Razor.xml
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\obj\Debug\AppData.csprojResolveAssemblyReference.cache
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\obj\Debug\AppData.dll
+C:\Users\David.Moore\Downloads\DemoApp-Finished\DemoApp-Finished\AppData\obj\Debug\AppData.pdb
+D:\Training Modules\Demo App\DemoApp\AppData\bin\AppData.dll.config
+D:\Training Modules\Demo App\DemoApp\AppData\bin\AppData.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\AppData.pdb
+D:\Training Modules\Demo App\DemoApp\AppData\bin\Antlr3.Runtime.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\EntityFramework.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\Microsoft.Web.Infrastructure.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\Newtonsoft.Json.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Net.Http.Formatting.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Helpers.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.WebHost.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Mvc.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Optimization.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Providers.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Razor.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Deployment.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Razor.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\WebGrease.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\EntityFramework.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\Newtonsoft.Json.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Net.Http.Formatting.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Helpers.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.WebHost.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Mvc.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Razor.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Deployment.xml
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Razor.xml
+D:\Training Modules\Demo App\DemoApp\AppData\obj\Debug\AppData.dll
+D:\Training Modules\Demo App\DemoApp\AppData\obj\Debug\AppData.pdb
