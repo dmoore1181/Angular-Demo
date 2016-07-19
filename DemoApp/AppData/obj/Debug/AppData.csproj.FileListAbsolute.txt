@@ -89,3 +89,6 @@ D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Deployment.
 D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.WebPages.Razor.xml
 D:\Training Modules\Demo App\DemoApp\AppData\obj\Debug\AppData.dll
 D:\Training Modules\Demo App\DemoApp\AppData\obj\Debug\AppData.pdb
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.Tracing.dll
+D:\Training Modules\Demo App\DemoApp\AppData\bin\System.Web.Http.Tracing.xml
+D:\Training Modules\Demo App\DemoApp\AppData\obj\Debug\AppData.csprojResolveAssemblyReference.cache

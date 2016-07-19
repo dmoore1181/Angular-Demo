@@ -20,7 +20,7 @@ namespace AppData.Controllers
         public void Post(string id , JObject eventData)
         {
             var path = System.Web.Hosting.HostingEnvironment.MapPath("/");
-            System.IO.File.WriteAllText(path + "../app/data/event" + id + ".json", eventData.ToString(Formatting.None));
+            System.IO.File.WriteAllText(path + "../app/data/event/" + id + ".json", eventData.ToString(Formatting.None));
         }
 
     }
