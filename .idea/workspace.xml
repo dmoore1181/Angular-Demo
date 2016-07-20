@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1b001162-ca75-47bc-b267-699d6104b8d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DemoApp/app/CacheSample.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DemoApp/app/CompileSample.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DemoApp/app/js/controllers/CacheSampleController.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/DemoApp/app/js/controllers/CompileSampleController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/EventDetails.html" afterPath="$PROJECT_DIR$/DemoApp/app/EventDetails.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/js/app.js" afterPath="$PROJECT_DIR$/DemoApp/app/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/js/controllers/EditEventController.js" afterPath="$PROJECT_DIR$/DemoApp/app/js/controllers/EditEventController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/js/controllers/EventController.js" afterPath="$PROJECT_DIR$/DemoApp/app/js/controllers/EventController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/js/services/EventData.js" afterPath="$PROJECT_DIR$/DemoApp/app/js/services/EventData.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DemoApp/app/js/controllers/CompileSampleController.js" afterPath="$PROJECT_DIR$/DemoApp/app/js/controllers/CompileSampleController.js" />
     </list>
     <ignored path="Demo App.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,8 +70,8 @@
       <file leaf-file-name="CompileSampleController.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DemoApp/app/js/controllers/CompileSampleController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+            <state relative-caret-position="85">
+              <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
               <folding>
                 <element signature="e#0#47#0" expanded="false" />
               </folding>
@@ -478,12 +469,12 @@
       <workItem from="1468425140062" duration="9318000" />
       <workItem from="1468594782527" duration="2275000" />
       <workItem from="1468851101998" duration="1988000" />
-      <workItem from="1468869203189" duration="8310000" />
+      <workItem from="1468869203189" duration="10255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30141000" />
+    <option name="totallyTimeSpent" value="32086000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
@@ -963,8 +954,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DemoApp/app/js/controllers/CompileSampleController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+        <state relative-caret-position="85">
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
           <folding>
             <element signature="e#0#47#0" expanded="false" />
           </folding>
