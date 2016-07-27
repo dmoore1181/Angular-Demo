@@ -3,6 +3,6 @@
  */
 'use strict';
 eventsApp.controller('SampleDirectiveController',
-    function SampleDirectiveController($scope, $location) {
+    function SampleDirectiveController($scope) {
 
     });
