@@ -12,9 +12,20 @@ var eventsApp = angular.module('eventsApp', ['ngResource', 'ngRoute'])
             controller: 'EventListController'
         });
         $routeProvider.when('/event/:eventId', {
+
             templateUrl: 'templates/EventDetails.html',
-            controller: 'EventController'
+            controller: 'EventController',
+            resolve:{
+                event: function($route, eventData){
+                    return eventData.getEvent($route.current.pathParams.eventId).$promise;
+                }
+            }
         });
+        $routeProvider.when('/sampleDirective',
+            {
+                templateUrl: 'templates/SampleDirective.html',
+                controller: 'SampleDirectiveController'
+            })
         $routeProvider.otherwise({redirectTo: '/events'});
         $locationProvider.html5Mode(true);
     });

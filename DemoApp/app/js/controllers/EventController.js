@@ -3,7 +3,7 @@
 eventsApp.controller('EventController',
     function EventController($scope, eventData, $log, $routeParams, $route){
         $scope.sortorder = 'name';
-        $scope.event = eventData.getEvent($routeParams.eventId);
+        $scope.event = $route.current.locals.event;
 
         $scope.reload = function(){
             $route.reload();
