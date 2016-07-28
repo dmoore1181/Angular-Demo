@@ -4,13 +4,13 @@
         <hr/>
         <form name="newEventForm">
             <fieldset>
-                <label for="eventName">EventName:</label>
+                <label for="eventName">Event Name:</label>
                 <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event..."/>
-                <label for="eventDate">EventName:</label>
-                <input id="eventDate" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)..."/>
-                <label for="eventTime">EventName:</label>
+                <label for="eventDate">Date:</label>
+                <input id="eventDate" date-keys required ng-pattern="/\d\d/\d\d/\d\d\d\d/" type="text" ng-model="event.date" placeholder="format (mm/dd/yyyy)..."/>
+                <label for="eventTime">Time:</label>
                 <input id="eventTime" type="text" ng-model="event.time" placeholder="start and end time..."/>
-                <label for="eventLocation">EventName:</label>
+                <label for="eventLocation">Location:</label>
                 <input id="eventLocation" type="text" ng-model="event.location.address" placeholder="Address of event..."/>
                 <br />
                 <input id="eventCity" type="text" class="input-small" ng-model="event.location.city" placeholder="City..."/>
