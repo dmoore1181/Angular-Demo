@@ -13,7 +13,7 @@ describe('EventListController', function(){
         $controllerConstructor = $controller;
         scope = $rootScope.$new();
         mockEventData = sinon.stub({getAllEvents: function(){}})
-    }))
+    }));
     it('Should set the scope events to the result of eventData.getAllEvents', function(){
         var mockEvents = {};
         mockEventData.getAllEvents.returns(mockEvents);
