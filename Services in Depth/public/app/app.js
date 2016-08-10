@@ -2,12 +2,12 @@
     var app = angular.module('app', []);
 
     app.provider('books', function(){
-        this.$get = function(){
+        this.$get = function(constants){
 
-            var appName = 'Book Logger';
-            var appDesc = 'Track which books you read.';
+            var appName = constants.APP_TITLE;
+            var appDesc = constants.APP_DESCRIPTION;
 
-            var version = '1.0';
+            var version = constants.APP_VERSION;
 
             if (includeVersionInTitle){
                 appName += ' ' + version;
@@ -25,8 +25,10 @@
         };
     });
 
-    app.config(function(booksProvider){
+    app.config(function(booksProvider, constants){
         booksProvider.setIncludeVersionInTitle(false);
+
+        console.log('title from constants service: ' + constants.APP_TITLE);
 
     });
 }());
