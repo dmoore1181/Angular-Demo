@@ -1,10 +1,10 @@
 (function() {
 
     angular.module('app')
-        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', BooksController]);
+        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', '$cookies', '$cookieStore', '$log', BooksController]);
 
 
-    function BooksController(books, dataService, logger, badgeService, $q) {
+    function BooksController(books, dataService, logger, badgeService, $q, $cookies, $cookieStore, $log) {
 
         var vm = this; //short for view model
 
@@ -26,7 +26,7 @@
             console.log(reason);
         }
 
-/*
+
         //vm.allBooks = dataService.getAllBooks();
         dataService.getAllBooks()
             .then(getBooksSuccess, null, getBooksNotification)
@@ -66,12 +66,20 @@
             console.log('getAllReaders has completed');
         }
         //vm.allReaders = dataService.getAllReaders();
-*/
+
 
         vm.getBadge = badgeService.retrieveBadge;
 
         logger.output('BooksController has been created.');
 
+        vm.favoriteBook = $cookies.favoriteBook;
+        vm.lastEdited = $cookieStore.get('lastEdited');
+
+        $log.log('logging with log');
+        $log.info('logging with info');
+        $log.warn('logging with warn');
+        $log.error('logging with error');
+        $log.debug('logging with debug');
     }
 
 }());

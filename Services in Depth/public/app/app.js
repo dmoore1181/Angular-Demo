@@ -1,5 +1,5 @@
 (function(){
-    var app = angular.module('app', ['ngRoute']);
+    var app = angular.module('app', ['ngRoute', 'ngCookies']);
 
     app.provider('books',['constants', function(constants){
         var includeVersionInTitle = false;
@@ -25,9 +25,9 @@
         };
     }]);
 
-    app.config(['booksProvider', '$routeProvider', function(booksProvider, $routeProvider){
+    app.config(['booksProvider', '$routeProvider', '$logProvider', function(booksProvider, $routeProvider, $logProvider){
         booksProvider.setIncludeVersionInTitle(false);
-
+        $logProvider.debugEnabled(true);
         $routeProvider
             .when('/',{
                 templateUrl: '/app/templates/books.html',
@@ -46,7 +46,23 @@
             })
             .otherwise('/');
 
+
         //console.log('title from constants service: ' + constants.APP_TITLE);
 
     }]);
+
+    app.run(['$rootScope', function($rootScope){
+        $rootScope.$on('$routeChangeSuccess', function(event, current, previous){
+            console.log('successfully changed routes');
+        });
+
+        $rootScope.$on('$routeChangeError', function(event, current, previous, rejection){
+            console.log('error changing routes');
+
+            console.log(event);
+            console.log(current);
+            console.log(previous);
+            console.log(rejection);
+        });
+    }])
 }());
