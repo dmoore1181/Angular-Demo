@@ -1,10 +1,10 @@
 (function() {
 
     angular.module('app')
-        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', '$cookies', '$cookieStore', '$log', BooksController]);
+        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', '$cookies', '$cookieStore', '$log', '$route', BooksController]);
 
 
-    function BooksController(books, dataService, logger, badgeService, $q, $cookies, $cookieStore, $log) {
+    function BooksController(books, dataService, logger, badgeService, $q, $cookies, $cookieStore, $log, $route) {
 
         var vm = this; //short for view model
 
@@ -67,6 +67,20 @@
         }
         //vm.allReaders = dataService.getAllReaders();
 
+        vm.deleteBook = function (bookID){
+            dataService.deleteBook(bookID)
+                .then(deleteBookSuccess)
+                .catch(deleteBookError);
+        };
+
+        function deleteBookSuccess(message){
+            $log.info(message);
+            $route.reload();
+        }
+
+        function deleteBookError(errorMessage){
+            $log.error(errorMessage);
+        }
 
         vm.getBadge = badgeService.retrieveBadge;
 
