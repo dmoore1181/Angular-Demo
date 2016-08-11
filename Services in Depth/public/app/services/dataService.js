@@ -3,9 +3,9 @@
  */
 (function(){
     angular.module('app')
-        .factory('dataService', dataService);
+        .factory('dataService', ['$q', '$timeout', 'logger', dataService]);
 
-    function dataService (logger){
+    function dataService ($q, $timeout, logger){
         return {
             getAllBooks: getAllBooks,
             getAllReaders: getAllReaders
@@ -15,7 +15,7 @@
 
             logger.output('getting all Books');
 
-            return [
+            var booksArray = [
                 {
                     book_id: 1,
                     title: 'Harry Potter and the Deathly Hallows',
@@ -35,13 +35,26 @@
                     year_published: 1963
                 }
             ];
+
+            var deferred = $q.defer();
+
+            $timeout(function(){
+                var successful = true;
+                if (successful){
+                    deferred.resolve(booksArray);
+                } else{
+                    deferred.reject('Error retrieving books.');
+                }
+            }, 1000);
+
+            return deferred.promise;
         }
 
         function getAllReaders(){
 
             logger.output('getting all Readers');
 
-            return [
+            return  [
                 {
                     reader_id: 1,
                     name: 'Marie',

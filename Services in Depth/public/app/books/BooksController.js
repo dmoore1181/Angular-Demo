@@ -10,7 +10,17 @@
 
         vm.appName = books.appName;
 
-        vm.allBooks = dataService.getAllBooks();
+        //vm.allBooks = dataService.getAllBooks();
+        dataService.getAllBooks().then(getBooksSuccess, getBooksError);
+
+        function getBooksSuccess(books){
+            vm.allBoos = books;
+        }
+
+        function getBooksError(reason){
+            console.log(reason);
+        }
+
         vm.allReaders = dataService.getAllReaders();
 
         vm.getBadge = badgeService.retrieveBadge;
