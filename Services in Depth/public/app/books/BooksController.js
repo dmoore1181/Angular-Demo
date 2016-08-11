@@ -1,27 +1,72 @@
 (function() {
 
     angular.module('app')
-        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', BooksController]);
+        .controller('BooksController', ['books', 'dataService', 'logger', 'badgeService', '$q', BooksController]);
 
 
-    function BooksController(books, dataService, logger, badgeService) {
+    function BooksController(books, dataService, logger, badgeService, $q) {
 
         var vm = this; //short for view model
 
         vm.appName = books.appName;
 
-        //vm.allBooks = dataService.getAllBooks();
-        dataService.getAllBooks().then(getBooksSuccess, getBooksError);
+        var booksPromise = dataService.getAllBooks();
+        var readersPromise = dataService.getAllReaders();
 
-        function getBooksSuccess(books){
-            vm.allBoos = books;
+        $q.all([booksPromise, readersPromise])
+            .then(getAllDataSuccess)
+            .catch(getAllDataError);
+
+        function getAllDataSuccess(dataArray){
+            vm.allBooks = dataArray[0];
+            vm.allReaders = dataArray[1];
         }
 
-        function getBooksError(reason){
+        function getAllDataError(reason){
             console.log(reason);
         }
 
-        vm.allReaders = dataService.getAllReaders();
+/*
+        //vm.allBooks = dataService.getAllBooks();
+        dataService.getAllBooks()
+            .then(getBooksSuccess, null, getBooksNotification)
+            .catch(errorCallback)
+            .finally(getAllBooksComplete);
+
+        function getBooksSuccess(books){
+            vm.allBooks = books;
+        }
+
+        // function getBooksError(reason){
+        //     console.log(reason);
+        // }
+
+        function errorCallback(errorMsg){
+            console.log('Error Message:' + errorMsg);
+        }
+
+        function getAllBooksComplete(){
+            console.log('Get All Books Completed.');
+        }
+
+        function getBooksNotification(notification){
+            console.log('Promise notification ' + notification);
+        }
+
+        dataService.getAllReaders()
+            .then(getReadersSuccess)
+            .catch(errorCallback)
+            .finally(getAllReadersComplete);
+
+        function getReadersSuccess(readers){
+            vm.allReaders = readers;
+        }
+
+        function getAllReadersComplete(){
+            console.log('getAllReaders has completed');
+        }
+        //vm.allReaders = dataService.getAllReaders();
+*/
 
         vm.getBadge = badgeService.retrieveBadge;
 

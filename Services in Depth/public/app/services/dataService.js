@@ -38,14 +38,16 @@
 
             var deferred = $q.defer();
 
-            $timeout(function(){
+            //$timeout(function(){
                 var successful = true;
                 if (successful){
+                    deferred.notify('Just getting started gatherinb books...');
+                    deferred.notify('Almost done gathering books...');
                     deferred.resolve(booksArray);
                 } else{
                     deferred.reject('Error retrieving books.');
                 }
-            }, 1000);
+            //}, 1000);
 
             return deferred.promise;
         }
@@ -54,7 +56,7 @@
 
             logger.output('getting all Readers');
 
-            return  [
+            var readersArray = [
                 {
                     reader_id: 1,
                     name: 'Marie',
@@ -74,6 +76,14 @@
                     totalMinutesRead: 600
                 }
             ];
+
+            var deferred = $q.defer();
+
+            //$timeout(function(){
+                deferred.resolve(readersArray);
+            //}, 1500);
+
+            return deferred.promise;
         }
     }
 
