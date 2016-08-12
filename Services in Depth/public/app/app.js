@@ -25,9 +25,12 @@
         };
     }]);
 
-    app.config(['booksProvider', '$routeProvider', '$logProvider', function(booksProvider, $routeProvider, $logProvider){
+    app.config(['booksProvider', '$routeProvider', '$logProvider', '$httpProvider', function(booksProvider, $routeProvider, $logProvider, $httpProvider){
         booksProvider.setIncludeVersionInTitle(false);
         $logProvider.debugEnabled(true);
+
+        $httpProvider.interceptors.push('bookLoggerInterceptor');
+
         $routeProvider
             .when('/',{
                 templateUrl: '/app/templates/books.html',
