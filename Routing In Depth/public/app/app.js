@@ -28,6 +28,11 @@
                 controllerAs: 'activities',
                 templateUrl: '/app/templates/allActivities.html'
             })
+            .when('/classrooms/:id',{
+                templateUrl: '/app/templates/classroom.html',
+                controller: 'ClassroomController',
+                controllerAs: 'classroom'
+            })
             .otherwise('/')
         ;
 
