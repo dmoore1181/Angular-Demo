@@ -1,21 +1,61 @@
-/**
- * Created by david.moore on 8/10/2016.
- */
-(function(){
-    angular.module('app')
-        .factory('dataService', ['$q', '$timeout', 'logger', '$http', 'constants', dataService]);
+(function() {
 
-    function dataService ($q, $timeout,  logger, $http, constants){
+    angular.module('app')
+        .factory('dataService', ['$q', '$timeout', '$http', 'constants', '$cacheFactory', dataService]);
+
+
+    function dataService($q, $timeout, $http, constants, $cacheFactory) {
+
         return {
             getAllBooks: getAllBooks,
             getAllReaders: getAllReaders,
             getBookByID: getBookByID,
             updateBook: updateBook,
             addBook: addBook,
-            deleteBook: deleteBook
+            deleteBook: deleteBook,
+            getUserSummary: getUserSummary
         };
 
-        function getAllBooks(){
+        function getUserSummary(){
+            var deferred = $q.defer();
+
+            var dataCache = $cacheFactory.get('bookLoggerCache');
+            if (!dataCache){
+                dataCache = $cacheFactory('bookLoggerCache');
+            }
+
+            var summaryFromCache = dataCache.get('summary');
+
+            if (summaryFromCache){
+                console.log('returning summary from cache');
+                deferred.resolve(summaryFromCache);
+            }else{
+                console.log('gathering new summary data');
+                var booksPromise = getAllBooks();
+                var readersPromise = getAllReaders();
+
+                $q.all([booksPromise, readersPromise])
+                    .then(function(bookLogerData){
+                        var allBooks = bookLoggerData[0];
+                        var allReaders = bookLoggerData[1];
+
+                        var grandTotalMintes = 0;
+
+                        allReaders.forEach(function(currentReader, index, array){
+                            grandTotalMintes += currentReader.totalMinutesRead;
+                        });
+
+                        dataCache.put('summary', summaryData);
+
+                        deferred.resolve(summaryData);
+                    });
+            }
+
+
+            //return deferred.promise;
+        }
+        function getAllBooks() {
+
             return $http({
                 method: 'GET',
                 url: 'api/books',
@@ -24,135 +64,122 @@
                 },
                 transformResponse: transformGetBooks
             })
-                .then(sendResponseData)
-                .catch(sendGetBooksError);
+            .then(sendResponseData)
+            .catch(sendGetBooksError)
+
         }
 
-        function transformGetBooks(data, headersGetter){
+        function transformGetBooks(data, headersGetter) {
+
             var transformed = angular.fromJson(data);
-            transformed.forEach(function(currentValue, index, array){
-                currentValue.dataDownloaded = new Date();
+
+            transformed.forEach(function (currentValue, index, array) {
+                currentValue.dateDownloaded = new Date();
             });
-            console.log(transformed);
+
+            //console.log(transformed);
             return transformed;
+
         }
 
-        function sendResponseData(response){
+        function sendResponseData(response) {
+
             return response.data;
+
         }
 
-        function sendGetBooksError(response){
-            return $q.reject('Error retrieving book(s). (HTTP status: ' + response.status + ')' );
+        function sendGetBooksError(response) {
+
+            return $q.reject('Error retrieving book(s). (HTTP status: ' + response.status + ')');
+
         }
 
-        function getBookByID(bookID){
-            return $http.get( 'api/books/' + bookID)
-                .then(sendResponseData)
-                .catch(sendGetBooksError);
+        function getBookByID(bookID) {
+
+            return $http.get('api/books/' + bookID)
+            .then(sendResponseData)
+            .catch(sendGetBooksError);
+
         }
 
-        function updateBook(book){
+        function updateBook(book) {
+
             return $http({
                 method: 'PUT',
                 url: 'api/books/' + book.book_id,
                 data: book
             })
-                .then(updateBookSuccess)
-                .catch(updateBookError);
+            .then(updateBookSuccess)
+            .catch(updateBookError);
+
         }
 
-        function updateBookSuccess(response){
+        function updateBookSuccess(response) {
+
             return 'Book updated: ' + response.config.data.title;
+
         }
 
-        function updateBookError(response){
-            return $q.reject('Error updating book. (HTTP status: ' + response.status + ')');
+        function updateBookError(response) {
+
+            return $q.reject('Error updating book.(HTTP status: ' + response.status + ')');
+
         }
 
-        function deleteBook(book){
-            return $http({
-                method: 'DELETE',
-                url: 'api/books/' + book.book_id,
-                data: book
-            })
-                .then(deleteBookSuccess)
-                .catch(deleteBookError);
-        }
+        function addBook(newBook) {
 
-        function deleteBookSuccess(response){
-            return 'Book deleted';
-        }
-
-        function deleteBookError(response){
-            return $q.reject('Error deleting book. (HTTP status: ' + response.status + ')');
-        }
-
-        function addBook(newBook){
             return $http.post('api/books', newBook, {
                 transformRequest: transformPostRequest
             })
-                .then(addBookSuccess)
-                .catch(addBookError);
+            .then(addBookSuccess)
+            .catch(addBookError);
         }
 
-        function transformPostRequest(data,headersGetter){
+        function transformPostRequest(data, headersGetter) {
+
             data.newBook = true;
+
             console.log(data);
+
             return JSON.stringify(data);
         }
 
-        function addBookSuccess(response){
+        function addBookSuccess(response) {
+
             return 'Book added: ' + response.config.data.title;
+
         }
 
-        function addBookError(response){
+        function addBookError(response) {
+
             return $q.reject('Error adding book. (HTTP status: ' + response.status + ')');
+
         }
 
-        // function getAllBooks(){
-        //
-        //     logger.output('getting all Books');
-        //
-        //     var booksArray = [
-        //         {
-        //             book_id: 1,
-        //             title: 'Harry Potter and the Deathly Hallows',
-        //             author: 'J.K. Rowling',
-        //             year_published: 2000
-        //         },
-        //         {
-        //             book_id: 2,
-        //             title: 'The Cat in the Hat',
-        //             author: 'Dr. Seuss',
-        //             year_published: 1957
-        //         },
-        //         {
-        //             book_id: 3,
-        //             title: 'Encyclopedia Brown, BOy Detective',
-        //             author: 'Donald J. Sobol',
-        //             year_published: 1963
-        //         }
-        //     ];
-        //
-        //     var deferred = $q.defer();
-        //
-        //     //$timeout(function(){
-        //         var successful = true;
-        //         if (successful){
-        //             deferred.notify('Just getting started gatherinb books...');
-        //             deferred.notify('Almost done gathering books...');
-        //             deferred.resolve(booksArray);
-        //         } else{
-        //             deferred.reject('Error retrieving books.');
-        //         }
-        //     //}, 1000);
-        //
-        //     return deferred.promise;
-        // }
+        function deleteBook(bookID) {
 
-        function getAllReaders(){
+            return $http({
+                method: 'DELETE',
+                url: 'api/books/' + bookID
+            })
+                .then(deleteBookSuccess)
+                .catch(deleteBookError);
 
-            logger.output('getting all Readers');
+        }
+
+        function deleteBookSuccess(response) {
+
+            return 'Book deleted.';
+
+        }
+
+        function deleteBookError(response) {
+
+            return $q.reject('Error deleting book. (HTTP status: ' + response.status + ')');
+
+        }
+
+        function getAllReaders() {
 
             var readersArray = [
                 {
@@ -177,13 +204,14 @@
 
             var deferred = $q.defer();
 
-            //$timeout(function(){
+            $timeout(function() {
+
                 deferred.resolve(readersArray);
-            //}, 1500);
+
+            }, 0);
 
             return deferred.promise;
         }
     }
 
-    dataService.$inject = ['logger'];
 }());

@@ -1,20 +1,19 @@
-(function(){
+(function() {
 
-    angular.module('app').service('logger', BookAppLogger);
+    angular.module('app')
+        .service('logger', BookAppLogger);
 
-    function LoggerBase(){
+    function LoggerBase() { }
 
-    }
-
-    LoggerBase.prototype.output = function(message){
+    LoggerBase.prototype.output = function(message) {
         console.log('LoggerBase: ' + message);
     };
 
-    function BookAppLogger(){
+    function BookAppLogger() {
 
         LoggerBase.call(this);
 
-        this.logBook = function(book){
+        this.logBook = function(book) {
             console.log('Book: ' + book.title);
         }
     }
