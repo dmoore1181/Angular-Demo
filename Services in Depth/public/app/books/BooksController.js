@@ -10,7 +10,13 @@
 
         vm.appName = books.appName;
 
-        dataService.getUserSu
+        dataService.getUserSummary()
+            .then(getUserSummarySuccess);
+
+        function getUserSummarySuccess(summaryData){
+            console.log(summaryData);
+            vm.summaryData= summaryData;
+        }
 
         dataService.getAllBooks()
             .then(getBooksSuccess, null, getBooksNotification)
