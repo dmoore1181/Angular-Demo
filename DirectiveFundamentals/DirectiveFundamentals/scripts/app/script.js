@@ -16,12 +16,19 @@ angular.module('app').controller('mainCtrl', function($scope){
             'Chewbacca'
         ]
     }
+
+    
 });
 
-
-angular.module('app').directive('userInfoCard', function() {
-    return {
-        restrict: 'E',
-        templateUrl: 'userInfoCard.html'
-    }
-})
+angular.module('app').directive('userInfoCard',
+        function() {
+            return {
+                restrict: 'E',
+                templateUrl: 'userInfoCard.html',
+                controller: function($scope) {
+                    $scope.knightMe = function(user) {
+                        user.rank = "knight";
+                    };
+                }
+            }
+        });
