@@ -41,10 +41,32 @@ angular.module('app').directive('userInfoCard',
                 scope: {
                     user: '='
                 },
-                controller: function($scope) {
+                controller: function ($scope) {
+                    $scope.collapsed = false;
                     $scope.knightMe = function(user) {
-                        user.rank = "knight";
+                        user.rank = 'knight';
                     };
+
+                    $scope.collapse=function() {
+                        $scope.collapsed = !$scope.collapsed;
+                    }
                 }
             }
         });
+
+angular.module('app').directive('address', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'address.html',
+        scope: true,
+        controller: function($scope) {
+            $scope.collapsed = false;
+            $scope.collapseAddress = function() {
+                $scope.collapsed = true;
+            };
+            $scope.expandAddress = function() {
+                $scope.collapsed = false;
+            };
+        }
+    }
+})
