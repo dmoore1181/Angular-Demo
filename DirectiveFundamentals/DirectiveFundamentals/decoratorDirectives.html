@@ -5,8 +5,11 @@
 	<meta charset="utf-8" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/decoratorDirectives.css" rel="stylesheet" />
 </head>
-<body ng-controller="mainCtrl" class="container" style="padding-top: 30px" >
+<body ng-controller="mainCtrl" class="container" style="padding-top: 30px" my-click="clickHandler(data)">
+<user-tile user="user1"></user-tile>
+<h2>{{data.message}}</h2>
 <video id="vid" spacebar-support event-pause="handlePause(evt)" controls preload="none" poster="http://media.w3.org/2010/05/sintel/poster.png">
     <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4"/>
     <source src="http://media.w3.org/2010/05/sintel/trailer.webm5" type="video/webm"/>
@@ -19,9 +22,9 @@
     </li>
 </ul>
 <script src="scripts/jquery-3.1.0.js"></script>
-    <script src="scripts/bootstrap.js"></script>
-    <script src="scripts/xdate.js"></script>
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/app/decoratorDirectivesScript.js"></script>
+<script src="scripts/bootstrap.js"></script>
+<script src="scripts/xdate.js"></script>
+<script src="scripts/angular.js"></script>
+<script src="scripts/app/decoratorDirectivesScript.js"></script>
 </body>
 </html>
