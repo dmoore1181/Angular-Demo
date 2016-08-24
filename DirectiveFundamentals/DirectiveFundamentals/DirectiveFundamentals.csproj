@@ -96,6 +96,7 @@
   <ItemGroup>
     <Content Include="address.html" />
     <Content Include="Content\decoratorDirectives.css" />
+    <Content Include="Content\userInfo.css" />
     <Content Include="decoratorDirectives.html" />
     <Content Include="Sample1.html" />
     <Content Include="packages.config" />

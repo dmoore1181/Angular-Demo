@@ -33,26 +33,20 @@ angular.module('app').controller('mainCtrl', function($scope) {
 
 });
 
-angular.module('app').directive('stateDisplay',function() {
-            return{
-                link: function (scope, el, attrs) {
-                    scope.$watch(attrs['stateDisplay'],
-                        function(newVal) {
-                            switch (newVal) {
-                                case 0:
-                                    el.css('background-color', 'white');
-                                    break;
-                                case 1:
-                                    el.css('background-color', 'yellow');
-                                    break;
-                                case 2:
-                                    el.css('background-color', 'red');
-                                    break;
-                            }
-                        });
-                }
-            }
-        });
+angular.module('app').directive('stateDisplay', function () {
+    return {
+        link: function (scope, el, attrs) {
+            var parms = attrs['stateDisplay'].split(' ');
+            var linkVar = parms[0];
+            var classes = parms.slice(1);
+            scope.$watch(linkVar,
+                function (newVal) {
+                    el.removeClass(classes.join(' '));
+                    el.addClass(classes[newVal]);
+                });
+        }
+    }
+});
 
 angular.module('app').directive('userInfoCard',
         function() {
@@ -68,7 +62,7 @@ angular.module('app').directive('userInfoCard',
 
                     $scope.nextState = function () {
                         $scope.user.level++;
-                        $scope.user.level = $scope.user.level % 3;
+                        $scope.user.level = $scope.user.level % 4;
                     };
 
                     $scope.knightMe = function(user) {
