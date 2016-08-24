@@ -933,6 +933,7 @@
     <Content Include="scripts\xdate.js" />
     <Content Include="Transclusion.html" />
     <Content Include="personInfoCard.html" />
+    <Content Include="userPanel.html" />
     <Content Include="userTile.html" />
     <Content Include="Web.config" />
   </ItemGroup>
