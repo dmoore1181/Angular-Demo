@@ -99,6 +99,7 @@
     <Content Include="Content\userInfo.css" />
     <Content Include="decoratorDirectives.html" />
     <Content Include="displayBox.html" />
+    <Content Include="droidInfoCard.html" />
     <Content Include="myQuestion.html" />
     <Content Include="Sample1.html" />
     <Content Include="packages.config" />
@@ -931,7 +932,7 @@
     <None Include="scripts\_references.js" />
     <Content Include="scripts\xdate.js" />
     <Content Include="Transclusion.html" />
-    <Content Include="userInfoCard.html" />
+    <Content Include="personInfoCard.html" />
     <Content Include="userTile.html" />
     <Content Include="Web.config" />
   </ItemGroup>
