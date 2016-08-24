@@ -98,6 +98,7 @@
     <Content Include="Content\decoratorDirectives.css" />
     <Content Include="Content\userInfo.css" />
     <Content Include="decoratorDirectives.html" />
+    <Content Include="displayBox.html" />
     <Content Include="Sample1.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -105,6 +106,7 @@
     </Content>
     <Content Include="removeFriend.html" />
     <Content Include="scripts\app\decoratorDirectivesScript.js" />
+    <Content Include="scripts\app\displayBox.js" />
     <Content Include="scripts\version.json" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular.min.js.map" />
@@ -927,6 +929,7 @@
     <Content Include="scripts\jquery-3.1.0.slim.min.js" />
     <None Include="scripts\_references.js" />
     <Content Include="scripts\xdate.js" />
+    <Content Include="Transclusion.html" />
     <Content Include="userInfoCard.html" />
     <Content Include="userTile.html" />
     <Content Include="Web.config" />
