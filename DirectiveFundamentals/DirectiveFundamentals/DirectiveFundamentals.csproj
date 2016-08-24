@@ -99,6 +99,7 @@
     <Content Include="Content\userInfo.css" />
     <Content Include="decoratorDirectives.html" />
     <Content Include="displayBox.html" />
+    <Content Include="myQuestion.html" />
     <Content Include="Sample1.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
