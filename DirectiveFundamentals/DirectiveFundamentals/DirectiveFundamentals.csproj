@@ -101,6 +101,7 @@
     <Content Include="displayBox.html" />
     <Content Include="droidInfoCard.html" />
     <Content Include="myQuestion.html" />
+    <Content Include="PreLinkPostLink.html" />
     <Content Include="Sample1.html" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
@@ -110,6 +111,7 @@
     <Content Include="scripts\app\decoratorDirectivesScript.js" />
     <Content Include="scripts\app\displayBox.js" />
     <Content Include="scripts\app\LazyLoadScript.js" />
+    <Content Include="scripts\app\PreLinkPostLink.js" />
     <Content Include="scripts\version.json" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular.min.js.map" />
