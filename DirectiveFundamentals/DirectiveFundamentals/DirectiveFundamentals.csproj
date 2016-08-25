@@ -109,6 +109,7 @@
     <Content Include="removeFriend.html" />
     <Content Include="scripts\app\decoratorDirectivesScript.js" />
     <Content Include="scripts\app\displayBox.js" />
+    <Content Include="scripts\app\LazyLoadScript.js" />
     <Content Include="scripts\version.json" />
     <Content Include="scripts\errors.json" />
     <Content Include="scripts\angular.min.js.map" />
@@ -931,6 +932,7 @@
     <Content Include="scripts\jquery-3.1.0.slim.min.js" />
     <None Include="scripts\_references.js" />
     <Content Include="scripts\xdate.js" />
+    <Content Include="Lazy Loading.html" />
     <Content Include="Transclusion.html" />
     <Content Include="personInfoCard.html" />
     <Content Include="userPanel.html" />

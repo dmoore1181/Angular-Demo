@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    </head>
+    <body ng-controller="mainCtrl">
+        <h1>Hello Plunker!</h1>
+
+        <div my-lazy-render="showit">
+            <div ng-repeat="item in items">
+                {{item}}
+            </div>
+        </div>
+        <button class="btn btn-primary" ng-click="showit = true">Render Content</button>
+
+        <hr />
+
+        <div class="container">
+            <h1 class="well">Bounty Hunters</h1>
+            <div user-list="hunter in bountyHunters">
+                <span>Age: {{hunter.age}}</span>
+            </div>
+        </div>
+        <hr />
+        <button class="btn btn-primary" ng-click="add()">Add</button>
+        <button class="btn btn-primary" ng-click="remove()">Remove</button>
+
+        <script src="scripts/jquery-3.1.0.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/angular.js"></script>
+        <script src="scripts/app/LazyLoadScript.js"></script>
+    </body>
+</html>

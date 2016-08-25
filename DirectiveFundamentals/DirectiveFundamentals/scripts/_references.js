@@ -16,6 +16,7 @@
 /// <reference path="angular-touch.js" />
 /// <reference path="app/decoratordirectivesscript.js" />
 /// <reference path="app/displaybox.js" />
+/// <reference path="app/lazyloadscript.js" />
 /// <reference path="app/script.js" />
 /// <reference path="bootstrap.js" />
 /// <reference path="jquery-3.1.0.js" />
