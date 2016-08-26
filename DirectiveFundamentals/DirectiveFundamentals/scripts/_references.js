@@ -17,6 +17,7 @@
 /// <reference path="app/decoratordirectivesscript.js" />
 /// <reference path="app/displaybox.js" />
 /// <reference path="app/lazyloadscript.js" />
+/// <reference path="app/modaldirectivescript.js" />
 /// <reference path="app/paneldirective.js" />
 /// <reference path="app/prelinkpostlink.js" />
 /// <reference path="app/script.js" />

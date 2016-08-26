@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
+    <link href="Content/modal.css" rel="stylesheet" />
+</head>
+<body ng-controller="mainCtrl" class="container" style="padding-top: 30px;">
+    <h1>modal Sample</h1>
+    <a ng-click="openModal()">Click Here</a>
+    <modal open="modalOpen" options="{top:35, height:300}" on-close="modalClosed(response)">
+        <div class="panel panel-primary" ng-controller="modalCtrl">
+            <div class="panel-heading">Are you sure?</div>
+            <div class="panel-body">
+                <div class="btn btn-success" ng-click="close('yes')">Yes</div>
+                <div class="btn btn-success" ng-click="close('no')">No</div>
+            </div>
+        </div>
+    </modal>
+
+
+    <script src="scripts/jquery-3.1.0.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/app/ModalDirectiveScript.js"></script>
+</body>
+</html>

@@ -13,7 +13,12 @@ angular.module('app').controller('mainCtrl', function($scope) {
             'Leia',
             'Chewbacca'
         ],
-        level: 0
+        level: 0,
+        hasForce: true,
+        yearsOfJediTraining: 4,
+        master: 'Yoda',
+        passedTrials: true,
+        masterApproves: true
     }
 
     $scope.person2 = {
@@ -97,7 +102,25 @@ angular.module('app').directive('droidInfoCard', function () {
     }
 });
 
-angular.module('app').directive('personInfoCard', function() {
+angular.module('app').factory('jediPolicy', function($q) {
+    return {
+        advanceToKnight: function(candidate) {
+            var promise = $q(function(resolve, reject) {
+                if (candidate.hasForce && (candidate.yearsOfJediTraining > 20 || candidate.isChosenOne || (candidate.master === 'Yoda' && candidate.yearsOfJediTraining > 3)) && candidate
+                    .masterApproves && candidate.passedTrials) {
+                    candidate.rank = 'Jedi Knight';
+                    resolve(candidate);
+                }
+                else {
+                    reject(candidate);
+                }
+            });
+            return promise;
+        }
+    }
+});
+
+angular.module('app').directive('personInfoCard', function(jediPolicy) {
             return {
                 restrict: 'E',
                 templateUrl: 'personInfoCard.html',
@@ -106,8 +129,10 @@ angular.module('app').directive('personInfoCard', function() {
                     initialCollapsed: '@collapsed'
                 },
                 controller: function ($scope) {
-                    $scope.knightMe = function(person) {
-                        person.rank = 'knight';
+                    $scope.knightMe = function (person) {
+                        jediPolicy.advanceToKnight(person).then(null, function(person) {
+                            alert('Sorry, ' + person.name + ' is not ready to become a Jedi Knight');
+                        });
                     };
 
                     $scope.removeFriend = function (friend) {

@@ -96,10 +96,13 @@
   <ItemGroup>
     <Content Include="address.html" />
     <Content Include="Content\decoratorDirectives.css" />
+    <Content Include="Content\modal.css" />
     <Content Include="Content\userInfo.css" />
     <Content Include="decoratorDirectives.html" />
     <Content Include="displayBox.html" />
     <Content Include="droidInfoCard.html" />
+    <Content Include="modal.html" />
+    <Content Include="ModalDirectiveIndex.html" />
     <Content Include="myQuestion.html" />
     <Content Include="PreLinkPostLink.html" />
     <Content Include="Sample1.html" />
@@ -111,6 +114,7 @@
     <Content Include="scripts\app\decoratorDirectivesScript.js" />
     <Content Include="scripts\app\displayBox.js" />
     <Content Include="scripts\app\LazyLoadScript.js" />
+    <Content Include="scripts\app\ModalDirectiveScript.js" />
     <Content Include="scripts\app\panelDirective.js" />
     <Content Include="scripts\app\PreLinkPostLink.js" />
     <Content Include="scripts\version.json" />
