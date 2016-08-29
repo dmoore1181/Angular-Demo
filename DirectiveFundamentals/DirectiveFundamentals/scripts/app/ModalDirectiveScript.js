@@ -58,7 +58,7 @@ angular.module('app').directive('modal', function($document) {
                 'width': pageWidth + 'px',
                 'height': pageHeight + 'px'
 
-        })
+            });
         }
     }
 })
