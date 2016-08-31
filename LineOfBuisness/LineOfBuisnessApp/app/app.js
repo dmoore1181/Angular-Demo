@@ -6,11 +6,11 @@
     var app = angular.module('productManagement', ['common.services', 'ui.router', 'productResourceMock']);
 
     app.config([
-            '$stateProvider', '$urlRouterProvider', function ($stateProvier, $urlRouterProvider) {
+            '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 
                 $urlRouterProvider.otherwise('/');
 
-                $stateProvier
+                $stateProvider
                     //Home
                     .state('home',
                     {
