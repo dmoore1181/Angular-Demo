@@ -7,7 +7,7 @@
                 <input id="inputProductName" class="form-control" type="text" placeholder="Product Name (required)" ng-model="vm.product.productName" name="inputProductName" required
                        ng-minlength="4" ng-maxlength="12" />
             </div>
-            <span class="help-block has-error">
+            <span class="help-block has-error" ng-show="productForm.inputProductName.$error && productForm.inputProductName.$dirty">
                 <span ng-messages="productForm.inputProductName.$error" role="alert">
                     <span ng-message="required">Product Name is required</span>
                     <span ng-message="minlength">Product Name must be at least 4 chars.</span>
@@ -48,7 +48,7 @@
         <div class="form-group">
             <div class="col-md-4 col-md-offse-2">
                 <span>
-                    <button class="btn btn-primary" style="width: 80px; margin-right: 10px;" ng-click="vm.submit()">
+                    <button class="btn btn-primary" style="width: 80px; margin-right: 10px;" ng-click="vm.submit(productForm.$valid)" ><!--ng-disabled="productForm.$invalid"-->
                         Save
                     </button>
                 </span>

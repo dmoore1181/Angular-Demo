@@ -23,11 +23,16 @@
             vm.opened = !vm.opened;
         };
 
-        vm.submit = function() {
+        vm.submit = function(isValid) {
             // ReSharper disable once PossiblyUnassignedProperty
-            vm.product.$save(function(data) {
-                toastr.success('Save Successful');
-            });
+            if (isValid) {
+                vm.product.$save(function(data) {
+                    toastr.success('Save Successful');
+                });
+            }
+            else {
+                alert('Please correct validation errors before submitting');
+            }
         };
 
         vm.cancel = function() {
