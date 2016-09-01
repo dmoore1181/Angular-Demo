@@ -74,7 +74,6 @@
         var editingRegex = new RegExp(productUrl + '/[0-9][0-9]*', '');
 
         $httpBackend.whenGET(editingRegex).respond(function (method, url, data) {
-            debugger;
             var product = { 'productId': 0 };
             var parameters = url.split('/');
             var length = parameters.length;
@@ -91,7 +90,6 @@
         });
 
         $httpBackend.whenPOST(productUrl).respond(function (method, url, data) {
-            debugger;
             var product = angular.fromJson(data);
 
             if (!product.productId) {
