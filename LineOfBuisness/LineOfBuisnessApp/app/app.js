@@ -3,7 +3,7 @@
  */
 (function () {
     'use strict';
-    var app = angular.module('productManagement', ['common.services', 'ui.router', 'ui.mask', 'ui.bootstrap', 'productResourceMock', 'ngMessages']);
+    var app = angular.module('productManagement', ['common.services', 'ui.router', 'ui.mask', 'ui.bootstrap', 'productResourceMock', 'ngMessages', 'angularCharts']);
 
     app.config([
             '$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
@@ -15,13 +15,14 @@
                         url: '/',
                         templateUrl: 'app/welcomeView.html'
                     })
-                    //Products
+                    //Product List
                     .state('productList',
                     {
                         url: '/products',
                         templateUrl: 'app/products/productListView.html',
                         controller: 'ProductListCtrl as vm'
                     })
+                    //Product Detail
                     .state('productDetail',
                     {
                         url: '/products/:productId',
@@ -36,6 +37,33 @@
                             }
                         }
                     })
+                    //Product Chart
+                    .state('priceAnalytics',
+                    {
+                        url: '/priceAnalytics',
+                        templateUrl: 'app/prices/priceAnalyticsView.html',
+                        controller: 'PriceAnalyticsCtrl',
+                        resolve: {
+                            productResource: 'productResource',
+                            products: function(productResource) {
+                                return productResource.query(function(response) {
+                                    //no code needed for success
+                                }, 
+                                function(response) {
+                                    if (response.status === 404) {
+                                        alert('Error accessing resource: ' +
+                                            response.config.method +
+                                            ' ' +
+                                            response.config.url);
+                                    }
+                                    else {
+                                        alert(response.statusText);
+                                    }
+                                }).$promise;
+                            }
+                        }
+                    })
+                    //Product Edit
                     .state('productEdit',
                     {
                         abstract: true,
@@ -51,6 +79,7 @@
                             }
                         }
                     })
+
                     .state('productEdit.info',
                     {
                         url: '/info',
@@ -69,4 +98,17 @@
 
             }]
     );
+
+    app.config(function($provide) {
+        $provide.decorator('$exceptionHandler',
+        [
+            '$delegate', function($delegate) {
+                return function(exception, cause) {
+                    exception.message = 'Please contact the Help Desk! \n Message: ' + exception.message;
+                    $delegate(exception, cause);
+                    alert(exception.message);
+                }
+            }
+        ]);
+    });
 }());
