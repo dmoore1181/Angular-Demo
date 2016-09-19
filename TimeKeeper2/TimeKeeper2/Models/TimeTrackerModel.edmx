@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TimeTracker3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TimeEvent">
+          <Key>
+            <PropertyRef Name="TimeEventID" />
+          </Key>
+          <Property Name="TimeEventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeEventCategoryID" Type="int" Nullable="false" />
+          <Property Name="TimeTrackerUserID" Type="int" Nullable="false" />
+          <Property Name="TimeEventDescription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="TimeEventNotes" Type="varchar" MaxLength="1024" />
+          <Property Name="TicketReference" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TimeEventCategory">
+          <Key>
+            <PropertyRef Name="TimeEventCategoryID" />
+          </Key>
+          <Property Name="TimeEventCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TimeEventCategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeTrackerUser">
+          <Key>
+            <PropertyRef Name="TimeTrackerUserId" />
+          </Key>
+          <Property Name="TimeTrackerUserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="PassCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AcountTerminated" Type="bit" />
+        </EntityType>
+        <Association Name="FK_TimeEvent_TimeEvent">
+          <End Role="TimeTrackerUser" Type="Self.TimeTrackerUser" Multiplicity="1" />
+          <End Role="TimeEvent" Type="Self.TimeEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTrackerUser">
+              <PropertyRef Name="TimeTrackerUserId" />
+            </Principal>
+            <Dependent Role="TimeEvent">
+              <PropertyRef Name="TimeTrackerUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimeEvent_TimeEventCategory">
+          <End Role="TimeEventCategory" Type="Self.TimeEventCategory" Multiplicity="1" />
+          <End Role="TimeEvent" Type="Self.TimeEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeEventCategory">
+              <PropertyRef Name="TimeEventCategoryID" />
+            </Principal>
+            <Dependent Role="TimeEvent">
+              <PropertyRef Name="TimeEventCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeTracker3ModelStoreContainer">
+          <EntitySet Name="TimeEvent" EntityType="Self.TimeEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeEventCategory" EntityType="Self.TimeEventCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeTrackerUser" EntityType="Self.TimeTrackerUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TimeEvent_TimeEvent" Association="Self.FK_TimeEvent_TimeEvent">
+            <End Role="TimeTrackerUser" EntitySet="TimeTrackerUser" />
+            <End Role="TimeEvent" EntitySet="TimeEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeEvent_TimeEventCategory" Association="Self.FK_TimeEvent_TimeEventCategory">
+            <End Role="TimeEventCategory" EntitySet="TimeEventCategory" />
+            <End Role="TimeEvent" EntitySet="TimeEvent" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeTracker3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TimeEvent">
+          <Key>
+            <PropertyRef Name="TimeEventID" />
+          </Key>
+          <Property Name="TimeEventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeEventCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="TimeTrackerUserID" Type="Int32" Nullable="false" />
+          <Property Name="TimeEventDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TimeEventNotes" Type="String" MaxLength="1024" FixedLength="false" Unicode="false" />
+          <Property Name="TicketReference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="TimeTrackerUser" Relationship="Self.FK_TimeEvent_TimeEvent" FromRole="TimeEvent" ToRole="TimeTrackerUser" />
+          <NavigationProperty Name="TimeEventCategory" Relationship="Self.FK_TimeEvent_TimeEventCategory" FromRole="TimeEvent" ToRole="TimeEventCategory" />
+        </EntityType>
+        <EntityType Name="TimeEventCategory">
+          <Key>
+            <PropertyRef Name="TimeEventCategoryID" />
+          </Key>
+          <Property Name="TimeEventCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TimeEventCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TimeEvents" Relationship="Self.FK_TimeEvent_TimeEventCategory" FromRole="TimeEventCategory" ToRole="TimeEvent" />
+        </EntityType>
+        <EntityType Name="TimeTrackerUser">
+          <Key>
+            <PropertyRef Name="TimeTrackerUserId" />
+          </Key>
+          <Property Name="TimeTrackerUserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AcountTerminated" Type="Boolean" />
+          <NavigationProperty Name="TimeEvents" Relationship="Self.FK_TimeEvent_TimeEvent" FromRole="TimeTrackerUser" ToRole="TimeEvent" />
+        </EntityType>
+        <Association Name="FK_TimeEvent_TimeEvent">
+          <End Role="TimeTrackerUser" Type="Self.TimeTrackerUser" Multiplicity="1" />
+          <End Role="TimeEvent" Type="Self.TimeEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTrackerUser">
+              <PropertyRef Name="TimeTrackerUserId" />
+            </Principal>
+            <Dependent Role="TimeEvent">
+              <PropertyRef Name="TimeTrackerUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TimeEvent_TimeEventCategory">
+          <End Role="TimeEventCategory" Type="Self.TimeEventCategory" Multiplicity="1" />
+          <End Role="TimeEvent" Type="Self.TimeEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeEventCategory">
+              <PropertyRef Name="TimeEventCategoryID" />
+            </Principal>
+            <Dependent Role="TimeEvent">
+              <PropertyRef Name="TimeEventCategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeTracker3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TimeEvents" EntityType="Self.TimeEvent" />
+          <EntitySet Name="TimeEventCategories" EntityType="Self.TimeEventCategory" />
+          <EntitySet Name="TimeTrackerUsers" EntityType="Self.TimeTrackerUser" />
+          <AssociationSet Name="FK_TimeEvent_TimeEvent" Association="Self.FK_TimeEvent_TimeEvent">
+            <End Role="TimeTrackerUser" EntitySet="TimeTrackerUsers" />
+            <End Role="TimeEvent" EntitySet="TimeEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TimeEvent_TimeEventCategory" Association="Self.FK_TimeEvent_TimeEventCategory">
+            <End Role="TimeEventCategory" EntitySet="TimeEventCategories" />
+            <End Role="TimeEvent" EntitySet="TimeEvents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeTracker3ModelStoreContainer" CdmEntityContainer="TimeTracker3Entities">
+          <EntitySetMapping Name="TimeEvents">
+            <EntityTypeMapping TypeName="TimeTracker3Model.TimeEvent">
+              <MappingFragment StoreEntitySet="TimeEvent">
+                <ScalarProperty Name="TimeEventID" ColumnName="TimeEventID" />
+                <ScalarProperty Name="TimeEventCategoryID" ColumnName="TimeEventCategoryID" />
+                <ScalarProperty Name="TimeTrackerUserID" ColumnName="TimeTrackerUserID" />
+                <ScalarProperty Name="TimeEventDescription" ColumnName="TimeEventDescription" />
+                <ScalarProperty Name="TimeEventNotes" ColumnName="TimeEventNotes" />
+                <ScalarProperty Name="TicketReference" ColumnName="TicketReference" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeEventCategories">
+            <EntityTypeMapping TypeName="TimeTracker3Model.TimeEventCategory">
+              <MappingFragment StoreEntitySet="TimeEventCategory">
+                <ScalarProperty Name="TimeEventCategoryID" ColumnName="TimeEventCategoryID" />
+                <ScalarProperty Name="TimeEventCategoryName" ColumnName="TimeEventCategoryName" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeTrackerUsers">
+            <EntityTypeMapping TypeName="TimeTracker3Model.TimeTrackerUser">
+              <MappingFragment StoreEntitySet="TimeTrackerUser">
+                <ScalarProperty Name="TimeTrackerUserId" ColumnName="TimeTrackerUserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PassCode" ColumnName="PassCode" />
+                <ScalarProperty Name="AcountTerminated" ColumnName="AcountTerminated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

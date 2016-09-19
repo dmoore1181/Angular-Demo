@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TimeTrackerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccruralSchedule">
+          <Key>
+            <PropertyRef Name="AccruralScheduleID" />
+          </Key>
+          <Property Name="AccruralScheduleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccruralScheduleItem">
+          <Key>
+            <PropertyRef Name="AccruralScheduleItemID" />
+          </Key>
+          <Property Name="AccruralScheduleItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccruralScheduleID" Type="int" />
+          <Property Name="StartDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="Frequency" Type="int" Nullable="false" />
+          <Property Name="AdditionalAmount" Type="int" Nullable="false" />
+          <Property Name="CarryOverPercentage" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="FixedCarryOverAmount" Type="int" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TimeTrackerUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="PassCode" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AcountTerminated" Type="bit" />
+        </EntityType>
+        <Association Name="FK_AccruralSchedule_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="AccruralSchedule" Type="Self.AccruralSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="AccruralSchedule">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccruralScheduleItem_AccruralSchedule">
+          <End Role="AccruralSchedule" Type="Self.AccruralSchedule" Multiplicity="0..1" />
+          <End Role="AccruralScheduleItem" Type="Self.AccruralScheduleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccruralSchedule">
+              <PropertyRef Name="AccruralScheduleID" />
+            </Principal>
+            <Dependent Role="AccruralScheduleItem">
+              <PropertyRef Name="AccruralScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_TimeTrackerUser">
+          <End Role="TimeTrackerUser" Type="Self.TimeTrackerUser" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTrackerUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeTrackerModelStoreContainer">
+          <EntitySet Name="AccruralSchedule" EntityType="Self.AccruralSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccruralScheduleItem" EntityType="Self.AccruralScheduleItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TimeTrackerUser" EntityType="Self.TimeTrackerUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccruralSchedule_Position" Association="Self.FK_AccruralSchedule_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="AccruralSchedule" EntitySet="AccruralSchedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccruralScheduleItem_AccruralSchedule" Association="Self.FK_AccruralScheduleItem_AccruralSchedule">
+            <End Role="AccruralSchedule" EntitySet="AccruralSchedule" />
+            <End Role="AccruralScheduleItem" EntitySet="AccruralScheduleItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_TimeTrackerUser" Association="Self.FK_Position_TimeTrackerUser">
+            <End Role="TimeTrackerUser" EntitySet="TimeTrackerUser" />
+            <End Role="Position" EntitySet="Position" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TimeTrackerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AccruralSchedule">
+          <Key>
+            <PropertyRef Name="AccruralScheduleID" />
+          </Key>
+          <Property Name="AccruralScheduleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PositionID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.FK_AccruralSchedule_Position" FromRole="AccruralSchedule" ToRole="Position" />
+          <NavigationProperty Name="AccruralScheduleItems" Relationship="Self.FK_AccruralScheduleItem_AccruralSchedule" FromRole="AccruralSchedule" ToRole="AccruralScheduleItem" />
+        </EntityType>
+        <EntityType Name="AccruralScheduleItem">
+          <Key>
+            <PropertyRef Name="AccruralScheduleItemID" />
+          </Key>
+          <Property Name="AccruralScheduleItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccruralScheduleID" Type="Int32" />
+          <Property Name="StartDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="Frequency" Type="Int32" Nullable="false" />
+          <Property Name="AdditionalAmount" Type="Int32" Nullable="false" />
+          <Property Name="CarryOverPercentage" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="FixedCarryOverAmount" Type="Int32" />
+          <NavigationProperty Name="AccruralSchedule" Relationship="Self.FK_AccruralScheduleItem_AccruralSchedule" FromRole="AccruralScheduleItem" ToRole="AccruralSchedule" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="PositionID" />
+          </Key>
+          <Property Name="PositionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AccruralSchedules" Relationship="Self.FK_AccruralSchedule_Position" FromRole="Position" ToRole="AccruralSchedule" />
+          <NavigationProperty Name="TimeTrackerUser" Relationship="Self.FK_Position_TimeTrackerUser" FromRole="Position" ToRole="TimeTrackerUser" />
+        </EntityType>
+        <EntityType Name="TimeTrackerUser">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PassCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AcountTerminated" Type="Boolean" />
+          <NavigationProperty Name="Positions" Relationship="Self.FK_Position_TimeTrackerUser" FromRole="TimeTrackerUser" ToRole="Position" />
+        </EntityType>
+        <Association Name="FK_AccruralSchedule_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="AccruralSchedule" Type="Self.AccruralSchedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="PositionID" />
+            </Principal>
+            <Dependent Role="AccruralSchedule">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccruralScheduleItem_AccruralSchedule">
+          <End Role="AccruralSchedule" Type="Self.AccruralSchedule" Multiplicity="0..1" />
+          <End Role="AccruralScheduleItem" Type="Self.AccruralScheduleItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccruralSchedule">
+              <PropertyRef Name="AccruralScheduleID" />
+            </Principal>
+            <Dependent Role="AccruralScheduleItem">
+              <PropertyRef Name="AccruralScheduleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Position_TimeTrackerUser">
+          <End Role="TimeTrackerUser" Type="Self.TimeTrackerUser" Multiplicity="1" />
+          <End Role="Position" Type="Self.Position" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TimeTrackerUser">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Position">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TimeTrackerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AccruralSchedules" EntityType="Self.AccruralSchedule" />
+          <EntitySet Name="AccruralScheduleItems" EntityType="Self.AccruralScheduleItem" />
+          <EntitySet Name="Positions" EntityType="Self.Position" />
+          <EntitySet Name="TimeTrackerUsers" EntityType="Self.TimeTrackerUser" />
+          <AssociationSet Name="FK_AccruralSchedule_Position" Association="Self.FK_AccruralSchedule_Position">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="AccruralSchedule" EntitySet="AccruralSchedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccruralScheduleItem_AccruralSchedule" Association="Self.FK_AccruralScheduleItem_AccruralSchedule">
+            <End Role="AccruralSchedule" EntitySet="AccruralSchedules" />
+            <End Role="AccruralScheduleItem" EntitySet="AccruralScheduleItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Position_TimeTrackerUser" Association="Self.FK_Position_TimeTrackerUser">
+            <End Role="TimeTrackerUser" EntitySet="TimeTrackerUsers" />
+            <End Role="Position" EntitySet="Positions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TimeTrackerModelStoreContainer" CdmEntityContainer="TimeTrackerEntities">
+          <EntitySetMapping Name="AccruralSchedules">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AccruralSchedule">
+              <MappingFragment StoreEntitySet="AccruralSchedule">
+                <ScalarProperty Name="AccruralScheduleID" ColumnName="AccruralScheduleID" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccruralScheduleItems">
+            <EntityTypeMapping TypeName="TimeTrackerModel.AccruralScheduleItem">
+              <MappingFragment StoreEntitySet="AccruralScheduleItem">
+                <ScalarProperty Name="AccruralScheduleItemID" ColumnName="AccruralScheduleItemID" />
+                <ScalarProperty Name="AccruralScheduleID" ColumnName="AccruralScheduleID" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Frequency" ColumnName="Frequency" />
+                <ScalarProperty Name="AdditionalAmount" ColumnName="AdditionalAmount" />
+                <ScalarProperty Name="CarryOverPercentage" ColumnName="CarryOverPercentage" />
+                <ScalarProperty Name="FixedCarryOverAmount" ColumnName="FixedCarryOverAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="TimeTrackerModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TimeTrackerUsers">
+            <EntityTypeMapping TypeName="TimeTrackerModel.TimeTrackerUser">
+              <MappingFragment StoreEntitySet="TimeTrackerUser">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="PassCode" ColumnName="PassCode" />
+                <ScalarProperty Name="AcountTerminated" ColumnName="AcountTerminated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
