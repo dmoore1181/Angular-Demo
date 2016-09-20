@@ -9,9 +9,11 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using GuessGenesisCodeLines.API.Models;
+using System.Web.Http.Cors;
 
 namespace GuessGenesisCodeLines.Controllers
 {
+    [EnableCors(origins: "http://localhost:49254", headers: "*", methods: "*")]
     public class UserAnswersController : ApiController
     {
         private GuessGenesisEntities2 db = new GuessGenesisEntities2();
@@ -19,7 +21,7 @@ namespace GuessGenesisCodeLines.Controllers
         // GET: api/UserAnswers
         public IQueryable<UserAnswer> GetUserAnswers()
         {
-            return db.UserAnswers;
+            return db.UserAnswers.OrderByDescending(x=>x.answer);
         }
 
         // GET: api/UserAnswers/5

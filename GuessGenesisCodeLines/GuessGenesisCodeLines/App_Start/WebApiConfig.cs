@@ -9,6 +9,7 @@ namespace GuessGenesisCodeLines
     {
         public static void Register(HttpConfiguration config)
         {
+            config.EnableCors();
             // Web API configuration and services
 
             // Web API routes
@@ -19,6 +20,8 @@ namespace GuessGenesisCodeLines
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Routes.MapHttpRoute("DefaultApiWithAction", "Api/{controller}/{action}");
         }
     }
 }

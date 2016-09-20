@@ -12,6 +12,8 @@ namespace GuessGenesisCodeLines.API.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class GuessGenesisEntities2 : DbContext
     {
@@ -26,5 +28,12 @@ namespace GuessGenesisCodeLines.API.Models
         }
     
         public virtual DbSet<UserAnswer> UserAnswers { get; set; }
+    
+        public virtual ObjectResult<getBestAnswer_Result> getBestAnswer()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBestAnswer_Result>("getBestAnswer");
+        }
+
+        public System.Data.Entity.DbSet<GuessGenesisCodeLines.API.Models.getBestAnswer_Result> getBestAnswer_Result { get; set; }
     }
 }

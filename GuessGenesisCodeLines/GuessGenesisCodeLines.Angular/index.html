@@ -5,11 +5,13 @@
 	<meta charset="utf-8" />
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="Content/toastr.css" rel="stylesheet" />
 </head>
 <body ng-app="GuessWeightApp">
     <div class="container">
 
         <br />
+        
         <h1>Guess Genesis's Weight</h1>
 
         <div ui-view></div>
@@ -59,13 +61,15 @@
     <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
     <script src="Scripts/tether/tether.js"></script>
     <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/toastr.js"></script>
     <script src="Scripts/app/app.js"></script>
     
     <script src="Scripts/app/Services/common.services.js"></script>
     <script src="Scripts/app/Services/AnswerResource.js"></script>
+    <script src="../Scripts/app/Services/WinnerResource.js"></script>
     
     <script src="Scripts/app/Controllers/AnswerListCtrl.js"></script>
-
+    <script src="Scripts/app/Controllers/WinnerController.js"></script>
     
 
     <!--<script>

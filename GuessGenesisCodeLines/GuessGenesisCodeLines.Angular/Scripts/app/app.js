@@ -6,15 +6,18 @@
     app.config([
         '$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
-            debugger;
             $stateProvider.state('home',
-            {
-                url: '/',
-                templateUrl: 'Templates/Home.html',
-                controller: 'AnswerListController as vm'
-            });
-        
+                {
+                    url: '/',
+                    templateUrl: 'Templates/Home.html',
+                    controller: 'AnswerListController as vm'
+                })
+                .state('Winner',
+                {
+                    url: '/DisplayWinner',
+                    templateUrl: 'Templates/DisplayAnswer.html',
+                    controller: 'WinnerController as winner'
+                });
         }
-
     ]);
 }())

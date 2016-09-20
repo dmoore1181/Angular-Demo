@@ -12,9 +12,8 @@ using System.ComponentModel.DataAnnotations;
 namespace GuessGenesisCodeLines.API.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class UserAnswer
+    public partial class getBestAnswer_Result
     {
         [Key]
         public int UserID { get; set; }

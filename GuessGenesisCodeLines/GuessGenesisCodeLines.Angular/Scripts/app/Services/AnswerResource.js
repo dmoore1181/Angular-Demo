@@ -1,8 +1,6 @@
 ﻿(function() {
     'use strict';
 
-    debugger;
-
     angular.module('common.services').factory('answerResource', ['$resource', answerResource]);
 
     function answerResource($resource) {
