@@ -1,9 +1,9 @@
 ﻿(function() {
     'use strict';
 
-    angular.module('GuessWeightApp').controller('WinnerController', ['winnerResource', '$resource', answerListController]);
+    angular.module('GuessWeightApp').controller('WinnerController', ['$resource', answerListController]);
 
-    function answerListController(winnerResource, $resource) {
+    function answerListController($resource) {
         var winner = this;
         var winnnerResourceType = $resource('http://localhost/GuessGenesisCodeLines.API/api/GetAnswer');
         var newWinner = new winnnerResourceType();

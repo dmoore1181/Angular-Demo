@@ -116,6 +116,7 @@
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Templates\DisplayAnswer.html" />
+    <Content Include="Templates\GetAnswer.html" />
     <Content Include="Templates\Home.html" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.0.min.map" />
