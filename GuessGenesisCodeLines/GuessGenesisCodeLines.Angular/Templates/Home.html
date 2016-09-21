@@ -1,24 +1,33 @@
-﻿<button ng-click="vm.DisplayWinner()">Display Winner</button>
-<div ng-show="vm.showPasswordEntry">
-    <input type="password" ng-model="vm.password" />
-    <button type="button" ng-click="vm.SubmitPassword()"> Submit Password</button>
-</div>
+﻿
 <p>Please enter your name and your guess for the number of lines in the Genesis program. Note this includes everything (Genesis, Web Genesis, and Jobs)</p>
 <form name="guessForm">
     <div class="form-group">
         <label for="userNameTextBox">
             Name
         </label>
-        <input type="text" name="userNameTextBox" id="userNameTextBox" class="form-control" placeholder="Enter your name" ng-model="vm.guess.name" required />
+        <input type="text" name="userNameTextBox" id="userNameTextBox" class="form-control" placeholder="Enter your name" ng-model="vm.guess.name" required/>
     </div>
     <div class="form-group">
         <label for="AnswerTextBox">Number Of Lines (Between 1000 and 1000000)</label>
-        <input type="number" max="1000000" min="1000" class="form-control" name="AnswerTextBox" id="AnswerTextBox" placeholder="Guess the number of lines in the code" ng-model="vm.guess.answer" required />
+        <input type="number" max="1000000" min="1000" class="form-control" name="AnswerTextBox" id="AnswerTextBox" placeholder="Guess the number of lines in the code" ng-model="vm.guess.answer" required/>
     </div>
-    <button class="btn btn-success" type="button" ng-click="vm.SubmitEntry()" ng-disabled="guessForm.$invalid"> Submit Entry</button>
+    <div class="row">
+        <div class="col-md-3">
+            <button class="btn btn-success" type="button" ng-click="vm.SubmitEntry()" ng-disabled="guessForm.$invalid"> Submit Entry</button>
+        </div>
+        <div class="col-md-3">
+            <button class="btn btn-danger" ng-click="vm.DisplayWinner()">Display Winner</button>
+            <div ng-show="vm.showPasswordEntry">
+                <input type="password" ng-model="vm.password"/>
+                <button class="btn btn-danger" type="button" ng-click="vm.SubmitPassword()"> Submit Password</button>
+
+            </div>
+        </div>
+    </div>
+
+
 </form>
 <br />
-
 <!--
 <table class="table table-bordered">
     <tr>
@@ -27,7 +36,8 @@
     </tr>
     <tr ng-repeat="userAnswer in vm.userAnswers">
         <td>{{userAnswer.UserName}}</td>
-        <td>{{userAnswer.answer}}</td>
+        <td>{{userAnswer.answer}}</td
+>
     </tr>
 </table>
 

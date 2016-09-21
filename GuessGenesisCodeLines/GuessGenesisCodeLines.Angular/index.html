@@ -7,57 +7,14 @@
     <link href="Content/ui-bootstrap-csp.css" rel="stylesheet" />
     <link href="Content/toastr.css" rel="stylesheet" />
 </head>
-<body ng-app="GuessWeightApp">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img alt="CLS Logo" src="Content/Images/cls-logo-sm.png"></a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+<body ng-app="GuessWeightApp" style="background-color: #add8e6">
+
+<div class="row">
+    <div class="col-md-2">
+        <img src="Content/Images/cls-logo-sm.png" alt="CLS Logo"/>
+    </div>
+</div>
+    
     <div class="container">
 
         <br />
@@ -66,7 +23,17 @@
 
         <div ui-view></div>
 
-
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-rounded img-responsive" style="width: 100%;" src="Content/Images/ss1.PNG"/>
+            </div>
+            <div class="col-md-4">
+                <img class="img-rounded img-responsive" style="width: 100%;" src="Content/Images/ss2.PNG"/>
+            </div>
+            <div class="col-md-4">
+                <img class="img-rounded img-responsive" style="width: 100%;" src="Content/Images/ss3.PNG" />
+            </div>
+        </div>
         <!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators
         <ol class="carousel-indicators">
@@ -78,13 +45,13 @@
         <!-- Wrapper for slides
         <div class="carousel-inner" role="listbox">
             <div class="item active">
-                <img src="../Content/Images/ss1.PNG" />
+                <img src="../Content/Images/ss1.PNG"/>
                 <div class="carousel-caption">
                     ...
                 </div>
             </div>
             <div class="item">
-                <img src="../Content/Images/ss2.PNG" />
+                <img src="../Content/Images/ss2.PNG"/>
                 <div class="carousel-caption">
                     ...
                 </div>
@@ -105,27 +72,29 @@
 
     </div>
     <script src="Scripts/jquery-3.1.0.js"></script>
+    <script src="Scripts/tether/tether.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-ui-router.js"></script>
     <script src="Scripts/angular-resource.js"></script>
-    <script src="Scripts/angular-ui/ui-bootstrap.js"></script>
-    <script src="Scripts/tether/tether.js"></script>
-    <script src="Scripts/bootstrap.js"></script>
+    <!--<script src="Scripts/angular-ui/ui-bootstrap.js"></script>-->
+
+
     <script src="Scripts/toastr.js"></script>
     <script src="Scripts/app/app.js"></script>
 
     <script src="Scripts/app/Services/common.services.js"></script>
     <script src="Scripts/app/Services/AnswerResource.js"></script>
-    <script src="../Scripts/app/Services/WinnerResource.js"></script>
+    <!-- <script src="../Scripts/app/Services/WinnerResource.js"></script>-->
 
     <script src="Scripts/app/Controllers/AnswerListCtrl.js"></script>
     <script src="Scripts/app/Controllers/WinnerController.js"></script>
 
 
     <!--<script>
-        $(function() {
-            $('#carousel-example-generic').carousel();
-        });
-    </script>-->
+            $(function() {
+                $('#carousel-example-generic').carousel();
+            });
+        </script>-->
 </body>
 </html>
