@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using GuessGenesisCodeLines.API.Models;
+using GuessGenesisCodeLines.Models;
 using System.Web.Http.Cors;
 
 namespace GuessGenesisCodeLines.Controllers

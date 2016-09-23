@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GuessGenesisCodeLines.API.Models
+namespace GuessGenesisCodeLines.Models
 {
     using System;
     using System.Data.Entity;
@@ -33,7 +33,5 @@ namespace GuessGenesisCodeLines.API.Models
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getBestAnswer_Result>("getBestAnswer");
         }
-
-        public System.Data.Entity.DbSet<GuessGenesisCodeLines.API.Models.getBestAnswer_Result> getBestAnswer_Result { get; set; }
     }
 }

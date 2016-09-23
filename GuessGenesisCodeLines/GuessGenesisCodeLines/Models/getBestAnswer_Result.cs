@@ -7,15 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations;
-
-namespace GuessGenesisCodeLines.API.Models
+namespace GuessGenesisCodeLines.Models
 {
     using System;
     
     public partial class getBestAnswer_Result
     {
-        [Key]
         public int UserID { get; set; }
         public string UserName { get; set; }
         public int answer { get; set; }
